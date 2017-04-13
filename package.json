@@ -1,0 +1,35 @@
+{
+  "name": "@varnalab/server",
+  "version": "1.0.0",
+  "description": "A NodeJS Server for various VarnaLab Services written in JavaScript",
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/varnalab/varnalab-server",
+  "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (https://simov.github.io)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varnalab/varnalab-server.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "lure": "^1.0.1",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {},
+  "bin": {
+    "varnalab-server": "./bin/"
+  },
+  "main": "./server/",
+  "files": [
+    "bin/",
+    "middlewares/",
+    "server/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {},
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
