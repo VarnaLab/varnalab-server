@@ -3,10 +3,61 @@
 
 ```bash
 npm install -g @varnalab/server
-varnalab-server --invite /path/to/config.json --port 3000 --env production
 ```
 
-# Invite - config.json
+```bash
+varnalab-server \
+  --oauth /path/to/config.json \
+  --invite /path/to/config.json \
+  --port 3000 \
+  --env production
+```
+
+# --oauth config.json
+
+```json
+{
+  "production": {
+    "server": {
+      "protocol": "https",
+      "host": "yourdomain.com",
+      "transport": "session",
+      "state": true,
+      "path": "/oauth",
+      "callback": "/oauth/connected",
+      "cookie": {
+        "name": "grant",
+        "secret": "[SECRET]"
+      }
+    },
+    "github": {
+      "invite": {
+        "key": "[APP_ID]",
+        "secret": "[APP_SECRET]",
+        "scope": [
+          "admin:org"
+        ]
+      }
+    },
+    "slack": {
+      "invite": {
+        "key": "[APP_ID]",
+        "secret": "[APP_SECRET]",
+        "scope": [
+          "admin"
+        ]
+      }
+    }
+  }
+}
+```
+
+# Invite - Access Tokens
+
+- `https://yourdomain.com/oauth/connect/github/invite`
+- `https://yourdomain.com/oauth/connect/slack/invite`
+
+# --invite config.json
 
 ```json
 {
@@ -111,21 +162,23 @@ varnalab-server --invite /path/to/config.json --port 3000 --env production
 }
 ```
 
-# Invite - Access Tokens
-
-- Slack Scopes: `admin`
-- GitHub Scopes: `admin:org`
-
 # Invite - Build Static Files
 
 ```bash
 npm install -g lure
+```
+
+```bash
 lure --config /path/to/invite/config.json --build /path/to/serve/location/ --env production
 ```
 
 # Invite - Copy Matrix Files and Logo
 
-> TODO
+Copy [varnalab-matrix](https://github.com/VarnaLab/varnalab-matrix) into:
+
+- `/path/to/serve/location/varnalab/`
+- `/path/to/serve/location/varnalab-github/`
+- `/path/to/serve/location/itclubsbg/`
 
 # Invite - github.varnalab.org
 
@@ -138,7 +191,7 @@ server {
   listen 443 ssl;
 
   server_name github.varnalab.org;
-  root /path/to/serve/location/;
+  root [/path/to/serve/location/];
 
   ################ SSL ################
 
@@ -151,7 +204,6 @@ server {
   # webroot plugin for letsencrypt
   location ^~ /.well-known {
     allow all;
-    alias /path/to/serve/location/.well-known/;
   }
 
   # index.html
@@ -201,7 +253,7 @@ server {
   listen 443 ssl;
 
   server_name slack.varnalab.org;
-  root /path/to/serve/location/;
+  root [/path/to/serve/location/];
 
   ################ SSL ################
 
@@ -214,7 +266,6 @@ server {
   # webroot plugin for letsencrypt
   location ^~ /.well-known {
     allow all;
-    alias /path/to/serve/location/.well-known/;
   }
 
   # index.html

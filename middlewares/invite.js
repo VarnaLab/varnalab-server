@@ -5,10 +5,11 @@ var Invite = require('lure')
 
 module.exports = (config) => {
   var api = express()
-  var invite = Invite(config.invite)
+  var invite = Invite(config)
 
   api.post('/send', (req, res) => {
-    var provider = config.invite[req.body.key].provider
+    var provider = config[req.body.key].provider
+
     invite[provider].send(req.body)
       .then((results) => {
         console.log(JSON.stringify({
@@ -31,10 +32,15 @@ module.exports = (config) => {
   })
 
   api.get('/users', (req, res) => {
-    var provider = config.invite[req.query.key].provider
+    var provider = config[req.query.key].provider
+
     invite[provider].users(req.query)
-      .then((result) => res.json(result))
-      .catch((err) => res.json({error: err.message}))
+      .then((result) => {
+        res.json(result)
+      })
+      .catch((err) => {
+        res.json({error: err.message})
+      })
   })
 
   return api
