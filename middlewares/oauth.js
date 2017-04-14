@@ -2,9 +2,11 @@
 var express = require('express')
 var session = require('express-session')
 var Grant = require('grant').express()
+var Log = require('../lib/log')
 
 
 module.exports = (config) => {
+  var log = Log('oauth')
   var api = express()
 
   api.use(session({
@@ -17,7 +19,15 @@ module.exports = (config) => {
   api.use(new Grant(config))
 
   api.use('/connected', (req, res) => {
-    res.end(JSON.stringify(req.session.grant, null, 2))
+    log({
+      provider: req.session.grant.provider,
+      override: req.session.grant.override
+    })
+
+    var json = JSON.stringify(req.session.grant, null, 2)
+    delete req.session.grant
+
+    res.end(json)
   })
 
   return api

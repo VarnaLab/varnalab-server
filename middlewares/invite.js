@@ -1,9 +1,11 @@
 
 var express = require('express')
 var Invite = require('lure')
+var Log = require('../lib/log')
 
 
 module.exports = (config) => {
+  var log = Log('invite')
   var api = express()
   var invite = Invite(config)
 
@@ -12,21 +14,11 @@ module.exports = (config) => {
 
     invite[provider].send(req.body)
       .then((results) => {
-        console.log(JSON.stringify({
-          timestamp: new Date().getTime(),
-          date: new Date().toString(),
-          provider,
-          input: req.body
-        }))
+        log(req.body)
         res.json(results[0][1])
       })
       .catch((err) => {
-        console.log(JSON.stringify({
-          timestamp: new Date().getTime(),
-          date: new Date().toString(),
-          provider,
-          error: err.message
-        }))
+        log(err)
         res.json({error: err.message})
       })
   })
@@ -39,6 +31,7 @@ module.exports = (config) => {
         res.json(result)
       })
       .catch((err) => {
+        log(err)
         res.json({error: err.message})
       })
   })
