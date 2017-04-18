@@ -1,6 +1,6 @@
 
 var express = require('express')
-var bodyParser = require('body-parser')
+var parser = require('body-parser')
 
 var middlewares = {
   oauth: require('../middlewares/oauth'),
@@ -11,8 +11,8 @@ var middlewares = {
 module.exports = (config) => {
   var server = express()
 
-  server.use(bodyParser.urlencoded({extended: true}))
-  server.use(bodyParser.json())
+  server.use(parser.urlencoded({extended: true}))
+  server.use(parser.json())
 
   server.use('/oauth', middlewares.oauth(config.oauth))
   server.use('/invite', middlewares.invite(config.invite))

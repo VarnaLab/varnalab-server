@@ -13,6 +13,18 @@ varnalab-server \
   --env production
 ```
 
+```bash
+forever start \
+  -a \
+  -o ~/path/to/varnalab-server-out \
+  -e ~/path/to/varnalab-server-err \
+  ~/path/to/varnalab-server/bin/ \
+  --oauth ~/path/to/grant.json \
+  --invite ~/path/to/lure.json \
+  --port 3000
+  --env production
+```
+
 # --oauth config.json
 
 ```json

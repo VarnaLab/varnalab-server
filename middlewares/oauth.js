@@ -8,6 +8,7 @@ var Log = require('../lib/log')
 module.exports = (config) => {
   var log = Log('oauth')
   var api = express()
+  var grant = new Grant(config)
 
   api.use(session({
     name: config.server.cookie.name,
@@ -16,7 +17,7 @@ module.exports = (config) => {
     resave: false
   }))
 
-  api.use(new Grant(config))
+  api.use(grant)
 
   api.use('/connected', (req, res) => {
     log({

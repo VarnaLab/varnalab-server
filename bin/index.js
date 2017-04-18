@@ -33,5 +33,5 @@ var config = {
 var server = require('../')(config)
 
 server.listen(argv.port, () => {
-  console.log('Oh Hi', argv.port, new Date().getTime(), new Date().toString(), '!')
+  console.log('Hi', argv.port, new Date().getTime(), new Date().toString(), '!')
 })
