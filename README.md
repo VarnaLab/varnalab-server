@@ -5,6 +5,8 @@
 npm install -g @varnalab/server
 ```
 
+# node
+
 ```bash
 varnalab-server \
   --oauth /path/to/config.json \
@@ -12,6 +14,8 @@ varnalab-server \
   --port 3000 \
   --env production
 ```
+
+# forever
 
 ```bash
 forever start \
@@ -23,6 +27,32 @@ forever start \
   --invite ~/path/to/lure.json \
   --port 3000
   --env production
+```
+
+# systemd
+
+```bash
+[Unit]
+Description=varnalab-server
+Documentation=https://github.com/varnalab/varnalab-server
+After=network.target
+
+[Service]
+ExecStart=/home/[USER]/.nvm/versions/node/v[VERSION]/bin/node /path/to/varnalab-server/bin/ \
+  --oauth /path/to/grant.json \
+  --invite /path/to/lure.json \
+  --env production \
+  --port 3000
+Type=simple
+User=[USER]
+Group=[USER]
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-varnalab-server
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 # --oauth config.json
