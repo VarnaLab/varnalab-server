@@ -1,7 +1,8 @@
 {
-  "name": "@varnalab/server",
+  "name": "varnalab-server",
   "version": "1.0.0",
-  "description": "A NodeJS Server for various VarnaLab Services written in JavaScript",
+  "description": "VarnaLab Services NodeJS Server",
+  "private": true,
   "keywords": [],
   "license": "MIT",
   "homepage": "https://github.com/varnalab/varnalab-server",
@@ -11,10 +12,10 @@
     "url": "https://github.com/varnalab/varnalab-server.git"
   },
   "dependencies": {
-    "body-parser": "^1.16.1",
-    "express": "^4.14.1",
-    "express-session": "^1.15.2",
-    "grant": "^3.7.1",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "grant": "^3.8.0",
     "lure": "^1.0.1",
     "minimist": "^1.2.0"
   },
@@ -25,13 +26,14 @@
   "main": "./server/",
   "files": [
     "bin/",
-    "middlewares/",
+    "mw/",
     "server/",
     "LICENSE",
     "README.md"
   ],
   "scripts": {},
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
   }
 }
