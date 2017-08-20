@@ -2,9 +2,9 @@
 var express = require('express')
 var parser = require('body-parser')
 
-var middlewares = {
-  oauth: require('../middlewares/oauth'),
-  invite: require('../middlewares/invite')
+var mw = {
+  oauth: require('../mw/oauth'),
+  invite: require('../mw/invite')
 }
 
 
@@ -14,8 +14,8 @@ module.exports = (config) => {
   server.use(parser.urlencoded({extended: true}))
   server.use(parser.json())
 
-  server.use('/oauth', middlewares.oauth(config.oauth))
-  server.use('/invite', middlewares.invite(config.invite))
+  server.use('/oauth', mw.oauth(config.oauth))
+  server.use('/invite', mw.invite(config.invite))
 
   return server
 }
