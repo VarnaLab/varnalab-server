@@ -3,7 +3,7 @@
 var argv = require('minimist')(process.argv.slice(2))
 
 var flags = {
-  oauth: {text: '--oauth path/to/config.json', required: true},
+  grant: {text: '--grant path/to/config.json', required: true},
   invite: {text: '--invite path/to/config.json', required: true},
   env: {text: '--env environment'},
   port: {text: '--port number', required: true}
@@ -26,7 +26,7 @@ var env = process.env.NODE_ENV || argv.env || 'development'
 var path = require('path')
 
 var config = {
-  oauth: require(path.resolve(process.cwd(), argv.oauth))[env],
+  grant: require(path.resolve(process.cwd(), argv.grant))[env],
   invite: require(path.resolve(process.cwd(), argv.invite))[env]
 }
 

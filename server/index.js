@@ -3,7 +3,7 @@ var express = require('express')
 var parser = require('body-parser')
 
 var mw = {
-  oauth: require('../mw/oauth'),
+  grant: require('../mw/grant'),
   invite: require('../mw/invite')
 }
 
@@ -14,7 +14,7 @@ module.exports = (config) => {
   server.use(parser.urlencoded({extended: true}))
   server.use(parser.json())
 
-  server.use('/oauth', mw.oauth(config.oauth))
+  server.use('/grant', mw.grant(config.grant))
   server.use('/invite', mw.invite(config.invite))
 
   return server
