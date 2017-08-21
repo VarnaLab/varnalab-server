@@ -6,20 +6,20 @@ var Log = require('../lib/log')
 
 
 module.exports = (config) => {
-  var log = Log('oauth')
-  var api = express()
+  var log = Log('grant')
+  var mw = express()
   var grant = new Grant(config)
 
-  api.use(session({
+  mw.use(session({
     name: config.server.cookie.name,
     secret: config.server.cookie.secret,
     saveUninitialized: false,
     resave: false
   }))
 
-  api.use(grant)
+  mw.use(grant)
 
-  api.use('/connected', (req, res) => {
+  mw.use('/connected', (req, res) => {
     log({
       provider: req.session.grant.provider,
       override: req.session.grant.override
@@ -31,5 +31,5 @@ module.exports = (config) => {
     res.end(json)
   })
 
-  return api
+  return mw
 }

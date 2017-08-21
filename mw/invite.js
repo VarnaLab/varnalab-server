@@ -6,10 +6,10 @@ var Log = require('../lib/log')
 
 module.exports = (config) => {
   var log = Log('invite')
-  var api = express()
+  var mw = express()
   var invite = Invite(config)
 
-  api.post('/send', (req, res) => {
+  mw.post('/send', (req, res) => {
     var provider = config[req.body.key].provider
 
     invite[provider].send(req.body)
@@ -23,7 +23,7 @@ module.exports = (config) => {
       })
   })
 
-  api.get('/users', (req, res) => {
+  mw.get('/users', (req, res) => {
     var provider = config[req.query.key].provider
 
     invite[provider].users(req.query)
@@ -36,5 +36,5 @@ module.exports = (config) => {
       })
   })
 
-  return api
+  return mw
 }

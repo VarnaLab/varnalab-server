@@ -1,0 +1,103 @@
+{
+  "test": {
+    "varnalab": {
+      "provider": "slack",
+      "id": "varnalab",
+      "name": "VarnaLab",
+      "token": "[ACCESS_TOKEN]",
+      "invite": [],
+      "meta": [],
+      "static": {
+        "root": "",
+        "favicon": "/varnalab/images/favicon.ico",
+        "logo": "/varnalab/images/logo.png",
+        "css": [
+          "/varnalab/css/styles.css"
+        ],
+        "js": [
+          "/varnalab/js/logo.js",
+          "/varnalab/js/ascii.js",
+          "/varnalab/js/matrix.js",
+          "/varnalab/js/index.js"
+        ]
+      },
+      "strings": [
+        "Присъедини се към чат канала на",
+        "в Slack!",
+        "потребители са активни в момента от",
+        "регистрирани",
+        "Вземи своята покана сега!",
+        "Поканата се изпраща",
+        "Провери пощата си!",
+        "или",
+        "се логни"
+      ]
+    },
+    "github": {
+      "provider": "github",
+      "id": "varnalab",
+      "name": "VarnaLab",
+      "token": "[ACCESS_TOKEN]",
+      "invite": [],
+      "meta": [],
+      "static": {
+        "root": "",
+        "favicon": "/varnalab-github/images/favicon.ico",
+        "logo": "/varnalab-github/images/logo.png",
+        "css": [
+          "/varnalab-github/css/styles.css"
+        ],
+        "js": [
+          "/varnalab-github/js/logo.js",
+          "/varnalab-github/js/ascii.js",
+          "/varnalab-github/js/matrix.js",
+          "/varnalab-github/js/index.js"
+        ]
+      },
+      "strings": [
+        "Присъедини се към организацията на",
+        "в GitHub!",
+        "активни",
+        "потребители",
+        "Вземи своята покана сега!",
+        "Поканата се изпраща",
+        "Провери пощата си!",
+        "или",
+        "се логни"
+      ]
+    },
+    "itclubsbg": {
+      "provider": "slack",
+      "id": "itclubsbg",
+      "name": "VarnaLab",
+      "token": "[ACCESS_TOKEN]",
+      "invite": [],
+      "meta": [],
+      "static": {
+        "root": "",
+        "favicon": "/itclubsbg/images/favicon.ico",
+        "logo": "/itclubsbg/images/logo.png",
+        "css": [
+          "/itclubsbg/css/styles.css"
+        ],
+        "js": [
+          "/itclubsbg/js/logo.js",
+          "/itclubsbg/js/ascii.js",
+          "/itclubsbg/js/matrix.js",
+          "/itclubsbg/js/index.js"
+        ]
+      },
+      "strings": [
+        "Присъедини се към чат канала на",
+        "в Slack!",
+        "потребители са активни в момента от",
+        "регистрирани",
+        "Вземи своята покана сега!",
+        "Поканата се изпраща",
+        "Провери пощата си!",
+        "или",
+        "се логни"
+      ]
+    }
+  }
+}

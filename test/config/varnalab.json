@@ -1,0 +1,24 @@
+{
+  "test": {
+    "db": {
+      "users"   : "/home/s/github/varnalab-server/test/db/users.json",
+      "devices" : "/home/s/github/varnalab-server/test/db/devices.json",
+      "online"  : "/home/s/github/varnalab-server/test/db/online.json",
+      "finance" : "/home/s/github/varnalab-server/test/db/finance.json",
+      "stats"   : "/home/s/github/varnalab-server/test/db/stats.json",
+      "events"  : "/home/s/github/varnalab-server/test/db/events.json"
+    },
+    "auth": {
+      "public"  : "/home/s/github/varnalab-server/test/cert/public.pem",
+      "private" : "/home/s/github/varnalab-server/test/cert/private.pem",
+      "callback": ""
+    },
+    "github": {
+      "connect": "",
+      "team": 2429042
+    },
+    "slack": {
+      "token": ""
+    }
+  }
+}

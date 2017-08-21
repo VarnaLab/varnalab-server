@@ -1,0 +1,23 @@
+[Unit]
+Description=VarnaLab Server
+Documentation=https://github.com/varnalab/varnalab-server
+After=network.target
+
+[Service]
+ExecStart=/home/[USER]/.nvm/versions/node/v[VERSION]/bin/node \
+  /path/to/varnalab-server/bin/ \
+  --varnalab /path/to/config.json \
+  --invite /path/to/config.json \
+  --grant /path/to/config.json \
+  --env production \
+  --port 3000
+Type=simple
+User=[USER]
+Group=[USER]
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-varnalab
+
+[Install]
+WantedBy=multi-user.target

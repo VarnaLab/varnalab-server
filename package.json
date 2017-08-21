@@ -16,20 +16,22 @@
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "grant": "^3.8.0",
-    "lure": "^1.0.1",
-    "minimist": "^1.2.0"
+    "lure": "^1.2.0",
+    "minimist": "^1.2.0",
+    "varnalab-api": "git+https://github.com/VarnaLab/varnalab-api.git#HEAD"
   },
   "devDependencies": {},
   "bin": {
-    "varnalab-server": "./bin/"
+    "varnalab-server": "./bin/server.js"
   },
-  "main": "./server/",
+  "main": "./mw/",
   "files": [
     "bin/",
+    "lib/",
     "mw/",
-    "server/",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "package.json"
   ],
   "scripts": {},
   "engines": {

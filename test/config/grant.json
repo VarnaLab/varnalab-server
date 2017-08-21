@@ -1,0 +1,34 @@
+{
+  "test": {
+    "server": {
+      "protocol": "http",
+      "host": "localhost:3000",
+      "transport": "session",
+      "state": true,
+      "path": "/grant",
+      "callback": "/grant/connected",
+      "cookie": {
+        "name": "grant",
+        "secret": "[SECRET]"
+      }
+    },
+    "github": {
+      "invite": {
+        "key": "[APP_ID]",
+        "secret": "[APP_SECRET]",
+        "scope": [
+          "admin:org"
+        ]
+      }
+    },
+    "slack": {
+      "invite": {
+        "key": "[APP_ID]",
+        "secret": "[APP_SECRET]",
+        "scope": [
+          "admin"
+        ]
+      }
+    }
+  }
+}
